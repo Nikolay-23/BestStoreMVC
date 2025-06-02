@@ -6,7 +6,6 @@ namespace BestStoreMVC.ViewModel
 {
     public class ProductViewModel
     {
-        public int Id { get; set; }
 
         [Required(ErrorMessage = "Product Name is required!")]
         [MaxLength(NameMaxLength, ErrorMessage = "Product Name is too long!")]
@@ -25,7 +24,6 @@ namespace BestStoreMVC.ViewModel
         [Required(ErrorMessage = "Product Description is required!")]
         public string Description { get; set; } = null!;
 
-        [Required(ErrorMessage = "The image file is required!")]
         public IFormFile? ImageFile { get; set; } = null!;
     }
 }
