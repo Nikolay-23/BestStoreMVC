@@ -4,6 +4,7 @@ using BestStoreMVC.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BestStoreMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250602170544_HeroPage")]
+    partial class HeroPage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +74,7 @@ namespace BestStoreMVC.Migrations
                             Id = 1,
                             Brand = "ASUS",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7131),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8263),
                             Description = "ASUS ROG Zephyrus G14 GA402XZ-NC009W, 14.0, WQXGA, AMD Ryzen 9 7940HS (4.0/5.2GHz, 16M), NVIDIA RTX 4080 12 GB GDDR6 DLSS 3, 32 GB, 1 TB SSD - 90NR0DH6-M000L0",
                             ImageFileName = "asus-ga402-rog-zephyrus-g14-2023-456146.jpg",
                             Name = "ASUS ROG Zephyrus",
@@ -82,7 +85,7 @@ namespace BestStoreMVC.Migrations
                             Id = 2,
                             Brand = "MSI",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7186),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8310),
                             Description = "MSI Titan 18 HX AI A2XWJG, 18.0, UHD+, Intel Core Ultra 9 285HX (2.8/5.5GHz, 36M), NVIDIA RTX 5090 24GB GDDR7 DLSS 4, 64 GB, 4 TB SSD - 9S7-182421-479",
                             ImageFileName = "msi-titan-18-hx-ai-a2xw-618952.jpg",
                             Name = "MSI Titan 18",
@@ -93,7 +96,7 @@ namespace BestStoreMVC.Migrations
                             Id = 3,
                             Brand = "Acer",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7188),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8312),
                             Description = "Acer Predator Helios Neo 16S AI PHN16S-71-96YW, 16.0, WQXGA, Intel Core Ultra 9 275HX (2.7/5.4GHz, 36M), NVIDIA RTX 5070 Ti 12GB GDDR7 DLSS 4, 32 GB, 1 TB SSD - NH.QX7EX.001",
                             ImageFileName = "acer-predator-phn16s-71-helios-neo-16s-ai-628568.jpg",
                             Name = "Acer Predator",
@@ -104,7 +107,7 @@ namespace BestStoreMVC.Migrations
                             Id = 4,
                             Brand = "Apple",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7191),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8314),
                             Description = "Apple MacBook Pro 14 2024, Silver, 14.2, 3024 x 1964, Apple M4 10C (2.89/4.4GHz, 4M), 10 ядра GPU Apple M4, 16 GB, 512 GB SSD - MW2W3ZE/A",
                             ImageFileName = "apple-macbook-pro-14-2024-m4-pro-max-588848.jpg",
                             Name = "Apple MacBook Pro 14",
@@ -115,7 +118,7 @@ namespace BestStoreMVC.Migrations
                             Id = 5,
                             Brand = "Apple",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7194),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8316),
                             Description = "Apple MacBook Pro 16 2024, Space Black, 16.2, 3456 x 2234, Apple M4 Pro 14C (4.51GHz, 4M), 20 ядра GPU Apple M4 Pro, 48 GB, 512 GB SSD - MX2Y3ZE/A",
                             ImageFileName = "apple-macbook-pro-16-2024-m4-pro-max-588869.jpg",
                             Name = " Apple MacBook Pro 16",
@@ -126,7 +129,7 @@ namespace BestStoreMVC.Migrations
                             Id = 6,
                             Brand = "Dell",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7197),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8320),
                             Description = "Dell XPS 16 9640, 16.3, Full HD+, Intel Core Ultra 7 155H (0.9/4.8GHz, 24M), NVIDIA RTX 4060 8GB GDDR6 DLSS 3, 32 GB, 2 TB SSD - DIABLO_MTL_2501_1200_2TBSSDNVME",
                             ImageFileName = "dell-xps-16-9640-547400.jpg",
                             Name = "Dell XPS 16",
@@ -137,7 +140,7 @@ namespace BestStoreMVC.Migrations
                             Id = 7,
                             Brand = "HP",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7199),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8322),
                             Description = "HP ZBook Power 16 G11, 16.0, Full HD+, Intel Core Ultra 7 155H (0.9/4.8GHz, 24M), NVIDIA RTX 2000 8GB GDDR6, 64 GB, 2 TB SSD - 98N83ET_EN_64GB_2TBSSDNVME",
                             ImageFileName = "hp-zbook-power-16-g11-576189.jpg",
                             Name = "HP ZBook Power 16",
@@ -148,7 +151,7 @@ namespace BestStoreMVC.Migrations
                             Id = 8,
                             Brand = "HP",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7201),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8324),
                             Description = "HP Elite x360 1040 G11 2-in-1, 14.0, Full HD+, touch screen, Intel Core Ultra 7 155H (0.9/4.8GHz, 24M), Intel Arc 8 Core, 32 GB, 2 TB SSD - 9G0U6ET_EN_2TBSSDNVME",
                             ImageFileName = "hp-elite-x360-1040-g11-580353.jpg",
                             Name = "HP Elite",
@@ -159,7 +162,7 @@ namespace BestStoreMVC.Migrations
                             Id = 9,
                             Brand = "Lenovo",
                             Category = "Computers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7203),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8326),
                             Description = "Lenovo ThinkPad P16 G2, 16.0, WQXGA, Intel Core i9-13980HX (1.6/5.6GHz, 36M), NVIDIA RTX 2000 8GB GDDR6, 64 GB, 1 TB SSD - 21FA000ABM_64GB",
                             ImageFileName = "lenovo-thinkpad-p16-g2-487799.jpg",
                             Name = "Lenovo ThinkPad",
@@ -170,7 +173,7 @@ namespace BestStoreMVC.Migrations
                             Id = 10,
                             Brand = "Logitech",
                             Category = "Accessories",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7205),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8328),
                             Description = "Logitech G PRO X 2 LIGHTSPEED Wireless Headset, Black - 981-001263",
                             ImageFileName = "logitech-g-pro-x-2-lightspeed-cheren-462424 (1).jpg",
                             Name = "Logitech G PRO X 2 LIGHTSPEED",
@@ -181,7 +184,7 @@ namespace BestStoreMVC.Migrations
                             Id = 11,
                             Brand = "Logitech",
                             Category = "Accessories",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7207),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8330),
                             Description = "Logitech G915 X LIGHTSPEED Clicky Wireless Gaming Keyboard, Black - 920-012709",
                             ImageFileName = "logitech-g915-x-lightspeed-wireless-gaming-keyboar-609238.jpg",
                             Name = "Logitech G915 X LIGHTSPEED Clicky",
@@ -192,7 +195,7 @@ namespace BestStoreMVC.Migrations
                             Id = 12,
                             Brand = "Logitech",
                             Category = "Accessories",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7209),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8332),
                             Description = "Logitech Pro X Superlight Wireless Mouse, Black - 910-005880",
                             ImageFileName = "copy-of-logitech-pro-x-superlight-byal-307189.jpg",
                             Name = "Logitech Pro X Superlight",
@@ -203,7 +206,7 @@ namespace BestStoreMVC.Migrations
                             Id = 13,
                             Brand = "Razer",
                             Category = "Accessories",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7212),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8335),
                             Description = "Razer Huntsman V3 Pro gaming keyboard, Black - RZ03-04970100-R3M1",
                             ImageFileName = "huntsman-v3-pro-us-layout-gaming-keyboard-analog-o-553027.jpg",
                             Name = "Razer Huntsman V3 Pro",
@@ -214,7 +217,7 @@ namespace BestStoreMVC.Migrations
                             Id = 14,
                             Brand = "Brother",
                             Category = "Printers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7214),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8337),
                             Description = "Printer Brother HL-L8240CDW, Electrophotographic LED, A4, 600 x 600 dpi, Wi-Fi - HLL8240CDWYJ1",
                             ImageFileName = "brother-hl-l8240cdw-515220.jpg",
                             Name = "Printer Brother HL-L8240CDW",
@@ -225,7 +228,7 @@ namespace BestStoreMVC.Migrations
                             Id = 15,
                             Brand = "HP",
                             Category = "Printers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7216),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8339),
                             Description = "HP LaserJet Pro 4202dn Printer, Laser, A4, 600 x 600 dpi, 33 ppm - 4RA87F",
                             ImageFileName = "hp-laserjet-pro-4202dn-504550.jpg",
                             Name = "HP LaserJet Pro 4202dn",
@@ -236,7 +239,7 @@ namespace BestStoreMVC.Migrations
                             Id = 16,
                             Brand = "Xerox",
                             Category = "Printers",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7219),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8341),
                             Description = "Xerox B410 Printer, Laser, A4, 1200 x 1200 dpi, 47 ppm - B410V_DN",
                             ImageFileName = "xerox-b410-printer-538741.jpg",
                             Name = "Xerox B410",
@@ -247,7 +250,7 @@ namespace BestStoreMVC.Migrations
                             Id = 17,
                             Brand = "GoPro",
                             Category = "Cameras",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7221),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8343),
                             Description = "Action camera GoPro HERO13 Black Creator Edition - CHDFB-131-EU",
                             ImageFileName = "copy-of-gopro-hero13-black-577320.jpg",
                             Name = "GoPro HERO13",
@@ -258,7 +261,7 @@ namespace BestStoreMVC.Migrations
                             Id = 18,
                             Brand = "GoPro",
                             Category = "Cameras",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7225),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8345),
                             Description = "Action camera GoPro HERO12 Black - CHDHX-121-RW",
                             ImageFileName = "gopro-hero12-black-488027.jpg",
                             Name = "GoPro HERO12",
@@ -269,7 +272,7 @@ namespace BestStoreMVC.Migrations
                             Id = 19,
                             Brand = "GoPro",
                             Category = "Cameras",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7227),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8347),
                             Description = "Action camera GoPro HERO11 Black Creator Edition - CHDFB-111-EU",
                             ImageFileName = "copy-of-gopro-hero11-black-405256.jpg",
                             Name = "GoPro HERO11",
@@ -280,7 +283,7 @@ namespace BestStoreMVC.Migrations
                             Id = 20,
                             Brand = "HP",
                             Category = "Other",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7229),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8349),
                             Description = "HP Professional Backpack 17.3, Black - 500S6AA",
                             ImageFileName = "hp-renew-business-backpack-up-to-17-3-531400.jpg",
                             Name = "HP Professional 17.3",
@@ -291,7 +294,7 @@ namespace BestStoreMVC.Migrations
                             Id = 21,
                             Brand = "GoPro",
                             Category = "Other",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7231),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8351),
                             Description = "Waterproof GoPro Protective Housing for GoPro HERO - ADDIV-001",
                             ImageFileName = "copy-of-za-xiaomi-mi-action-camera-4k-498463.jpg",
                             Name = "GoPro Protective Housing",
@@ -302,7 +305,7 @@ namespace BestStoreMVC.Migrations
                             Id = 22,
                             Brand = "Apple",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7234),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8353),
                             Description = "Smartphone Apple iPhone 16 Pro, 8GB, 512GB, Black Titanium - MYNM3ZD/A",
                             ImageFileName = "apple-iphone-16-pro-578268.jpg",
                             Name = "Apple iPhone 16 Pro",
@@ -313,7 +316,7 @@ namespace BestStoreMVC.Migrations
                             Id = 23,
                             Brand = "Apple",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7236),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8355),
                             Description = "Smartphone Apple iPhone 15, 6GB, 512GB, Blue - MTPG3RX/A",
                             ImageFileName = "apple-iphone-15-490283.jpg",
                             Name = "Apple iPhone 15",
@@ -324,7 +327,7 @@ namespace BestStoreMVC.Migrations
                             Id = 24,
                             Brand = "Samsung",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7238),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8357),
                             Description = "Smartphone Samsung Galaxy S25+, 12GB, 256GB, Icy Blue - SM-S936BLBDEUE",
                             ImageFileName = "samsung-galaxy-s25-607464.jpg",
                             Name = "Samsung Galaxy S25+",
@@ -335,7 +338,7 @@ namespace BestStoreMVC.Migrations
                             Id = 25,
                             Brand = "Samsung",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7242),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8359),
                             Description = "Smartphone Samsung Galaxy S24, 8GB, 128GB, Amber Yellow - SM-S921BZYDEUE",
                             ImageFileName = "samsung-galaxy-s24-527754.jpg",
                             Name = "Samsung Galaxy S24",
@@ -346,7 +349,7 @@ namespace BestStoreMVC.Migrations
                             Id = 26,
                             Brand = "Samsung",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7244),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8361),
                             Description = "Smartphone Samsung Galaxy S24 FE, 8GB, 256GB, Graphite - SM-S721BZKGEUE",
                             ImageFileName = "samsung-galaxy-s24-fe-581047.jpg",
                             Name = "Samsung Galaxy S24 FE",
@@ -357,7 +360,7 @@ namespace BestStoreMVC.Migrations
                             Id = 27,
                             Brand = "Apple",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7246),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8363),
                             Description = "Smartphone Apple iPhone 16 Plus, 8GB, 512GB, White - MY1X3ZD/A",
                             ImageFileName = "apple-iphone-16-plus-578510.jpg",
                             Name = "Apple iPhone 16 Plus",
@@ -368,7 +371,7 @@ namespace BestStoreMVC.Migrations
                             Id = 28,
                             Brand = "Apple",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7248),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8365),
                             Description = "Smartphone Apple iPhone 16 Pro Max, 8GB, 1TB, Black Titanium - MYX43ZD/A",
                             ImageFileName = "apple-iphone-16-pro-max-578288.jpg",
                             Name = "Apple iPhone 16 Pro Max",
@@ -379,7 +382,7 @@ namespace BestStoreMVC.Migrations
                             Id = 29,
                             Brand = "Apple",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7250),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8367),
                             Description = "Smartphone Apple iPhone 16e, 8GB, 256GB, Black - MD1T4ZD/A",
                             ImageFileName = "apple-iphone-16e-617257.jpg",
                             Name = "Apple iPhone 16e",
@@ -390,261 +393,12 @@ namespace BestStoreMVC.Migrations
                             Id = 30,
                             Brand = "Apple",
                             Category = "Phones",
-                            CreatedAt = new DateTime(2025, 6, 4, 0, 42, 29, 727, DateTimeKind.Local).AddTicks(7252),
+                            CreatedAt = new DateTime(2025, 6, 2, 17, 5, 43, 606, DateTimeKind.Local).AddTicks(8415),
                             Description = "Smartphone Apple iPhone 14, 6GB, 128GB, Blue - MPVN3RX/A",
                             ImageFileName = "apple-iphone-14-plus-402808.jpg",
                             Name = "Apple iPhone 14",
                             Price = 742m
                         });
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("LoginProvider", "ProviderKey");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserLogins", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId", "LoginProvider", "Name");
-
-                    b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -24,3 +24,7 @@ body {
 .cursor-style{
     cursor: pointer;
 }
+
+.back-color{
+    background-color: #08618d;
+}
