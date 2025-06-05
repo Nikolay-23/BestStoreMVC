@@ -1,11 +1,14 @@
+using BestStoreMVC.Models;
 using BestStoreMVC.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace BestStoreMVC
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,16 @@ namespace BestStoreMVC
                 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(connectionString);
             });
+
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
+                options =>
+                {
+                    options.Password.RequiredLength = 6;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false;
+                })
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             var app = builder.Build();
 
@@ -39,6 +52,18 @@ namespace BestStoreMVC
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+            //create the role and the first admin user if not available yet
+            using (var scope = app.Services.CreateScope())
+            {
+                var userManager = scope.ServiceProvider.GetService(typeof(UserManager<ApplicationUser>))
+                    as UserManager<ApplicationUser>;
+                var roleManager = scope.ServiceProvider.GetService(typeof(RoleManager<IdentityRole>))
+                    as RoleManager<IdentityRole>;
+
+                await DatabaseInitializer.SeedDataAsync(userManager, roleManager);
+
+            }
             app.Run();
         }
     }
