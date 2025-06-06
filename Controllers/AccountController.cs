@@ -235,7 +235,7 @@ namespace BestStoreMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> ForgotPassword([Required, EmailAddress] string email)
         {
-            if(_singInManager.IsSignedIn(User))
+            if (_singInManager.IsSignedIn(User))
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -252,11 +252,11 @@ namespace BestStoreMVC.Controllers
 
             if (user != null)
             {
-                //generate password reset token
+                // generate password reset token
                 var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-                string resetUrl = Url.ActionLink("ResetPassword", "Account", new {token }) ?? "URL Error";
+                string resetUrl = Url.ActionLink("ResetPassword", "Account", new { token }) ?? "URL Error";
 
-                //send url by email
+                // send url by email
                 string senderName = _configuration["BrevoSettings:SenderName"] ?? "";
                 string senderEmail = _configuration["BrevoSettings:SenderEmail"] ?? "";
                 string username = user.FirstName + " " + user.LastName;
@@ -269,7 +269,7 @@ namespace BestStoreMVC.Controllers
                 EmailSender.SendEmail(senderName, senderEmail, username, email, subject, message);
             }
 
-            ViewBag.SuccessMessage = "Please check your Email account and clik on the Password Reset link!";
+            ViewBag.SuccessMessage = "Please check your Email account and click on the Password Reset link!";
 
             return View();
         }
