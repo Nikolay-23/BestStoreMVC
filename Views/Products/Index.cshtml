@@ -90,13 +90,12 @@
 
 <nav>
     <ul class="pagination">
-        @for (int i = 1; i <= totalPages; i++)
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
         {
             string active = "";
-            if (i == pageIndex) active = "active";
+            if (i == ViewBag.PageIndex) active = "active";
             <li class="page-item @active">
-                <a class="page-link" asp-route-pageIndex="@i"
-                   asp-route-search="@search" asp-route-column="@column" asp-route-orderBy="@orderBy">@i</a>
+                <a class="page-link" asp-route-pageIndex="@i">@i</a>
             </li>
         }
     </ul>

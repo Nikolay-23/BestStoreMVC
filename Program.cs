@@ -2,6 +2,7 @@ using BestStoreMVC.Models;
 using BestStoreMVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using sib_api_v3_sdk.Client;
 using System.Threading.Tasks;
 
 namespace BestStoreMVC
@@ -29,7 +30,10 @@ namespace BestStoreMVC
                     options.Password.RequireUppercase = false;
                     options.Password.RequireLowercase = false;
                 })
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            Configuration.Default.ApiKey.Add("api-key", builder.Configuration["BrevoSettings:ApiKey"]);
 
             var app = builder.Build();
 

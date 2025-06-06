@@ -2,6 +2,7 @@
 @using BestStoreMVC.ViewModel
 @using Microsoft.AspNetCore.Identity;
 @inject UserManager<ApplicationUser> UserManager
+
 @{
 	var appUser = await UserManager.GetUserAsync(User);
 
