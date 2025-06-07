@@ -1,4 +1,7 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity;
+@using BestStoreMVC.Services;
+@inject SignInManager<ApplicationUser> SignInManager;
+@inject UserManager<ApplicationUser> UserManager;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,9 +35,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Index">Store</a>
                         </li>
                     </ul>
-                    @using Microsoft.AspNetCore.Identity;
-                    @inject SignInManager<ApplicationUser> SignInManager;
-                    @inject UserManager<ApplicationUser> UserManager;
+
+                    <ul class="navbar-nav me-2">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">
+                                <i class="bi bi-cart4 text-danger h3"></i>
+                                <span id="CartSize" class="badge rounded-pill bg-danger" style="vertical-align: top;">
+                                    @CartHelper.GetCartSize(Context.Request, Context.Response)
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
 
                     @if(SignInManager.IsSignedIn(User))
                     {
@@ -119,5 +130,8 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="~/js/site.js">
+    </script>
 </body>
 </html>

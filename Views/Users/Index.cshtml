@@ -17,7 +17,7 @@
     </thead>
 
     <tbody>
-        @foreach(var user in Model)
+        @foreach (var user in Model)
         {
             <tr>
                 <td>@(user.FirstName + " " + user.LastName)</td>
@@ -25,31 +25,50 @@
                 <td>@user.PhoneNumber</td>
                 <td>
                     @{
-                        var role = await UserManager.GetRolesAsync(user);
-                        var roleStr = String.Join(", ", role);
+                        var roles = await UserManager.GetRolesAsync(user);
+                        var rolesStr = String.Join(", ", roles);
 
 
                         string color = "bg-secondary";
-                        if(role.Contains("admin"))
+                        if (roles.Contains("admin"))
                         {
                             color = "bg-danger";
                         }
-                        else if(role.Contains("seller"))
+                        else if (roles.Contains("seller"))
                         {
                             color = "bg-warning text-dark";
                         }
-                        else if(role.Contains("client"))
+                        else if (roles.Contains("client"))
                         {
                             color = "bg-info text-dark";
                         }
-                        <span class="badge rounded-pill @color">@roleStr</span>
+
+
+                        <span class="badge rounded-pill @color">@rolesStr</span>
                     }
                 </td>
                 <td>@user.CreatedAt.ToString("MM/dd/yyyy")</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" asp-controller="Users" asp-action="Details" asp-route-id="@user.Id">Details</a>
+                    <a class="btn btn-primary btn-sm" asp-controller="Users" asp-action="Details"
+                       asp-route-id="@user.Id">Details</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+
+
+<nav>
+    <ul class="pagination">
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            string active = "";
+            if (i == ViewBag.PageIndex) active = "active";
+
+            <li class="page-item @active">
+                <a class="page-link" asp-route-pageIndex="@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>

@@ -15,7 +15,6 @@
         }
 
         <form method="post">
-
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input asp-for="Email" class="form-control" />
@@ -35,17 +34,20 @@
 
             <div class="row mb-3">
                 <div class="col d-grid">
-                    <button type="submit" class="btn btn-primary">Log In</button>
+                    <button type="submit" class="btn btn-primary">Log in</button>
                 </div>
                 <div class="col d-grid">
-                    <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index" role="button">Cancel</a>
+                    <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Index" role="button">
+                        Cancel
+                    </a>
                 </div>
             </div>
 
             <div>
-                <a class="btn btn-link" asp-controller="Account" asp-action="ForgotPassword">Forgot yout password?</a>
+                <a class="btn btn-link" asp-controller="Account" asp-action="ForgotPassword">
+                    Forgot your password?
+                </a>
             </div>
         </form>
-
     </div>
 </div>
