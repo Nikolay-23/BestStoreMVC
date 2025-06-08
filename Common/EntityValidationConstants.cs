@@ -15,5 +15,8 @@
         public const int PhoneNumberMaxLength = 20;
         public const int AddressMaxLenght = 200;
         public const int PasswordMaxLenght = 100;
+
+        //CheckOutViewModel
+        public const int DeliveryAddressMaxLenght = 200;
     }
 }

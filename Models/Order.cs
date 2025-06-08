@@ -16,7 +16,7 @@ namespace BestStoreMVC.Models
 
         public string DeliveryAddress { get; set; } = null!;
         public string PaymentMethod { get; set; } = null!;
-        public string PaymentStatu { get; set; } = null!;
+        public string PaymentStatus { get; set; } = null!;
         public string PaymentDetails { get; set; } = null!; // to store PayPal details
         public string OrderStatus { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
