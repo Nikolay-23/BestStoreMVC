@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace BestStoreMVC.Controllers
 {
     [Authorize(Roles = "admin")]
-    [Route("Admin/[controller]/{action=Index}/{id?}")]
+    [Route("/Admin/[controller]/{action=Index}/{id?}")]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -135,7 +135,6 @@ namespace BestStoreMVC.Controllers
             return View(products);
         }
 
-        [HttpGet]
         public IActionResult Create()
         {
             return View(new ProductViewModel());
@@ -274,7 +273,7 @@ namespace BestStoreMVC.Controllers
             System.IO.File.Delete(imageFullPath);
 
             _context.Products.Remove(product);
-            _context.SaveChanges();
+            _context.SaveChanges(true);
 
             return RedirectToAction("Index", "Products");
         }

@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BestStoreMVC.Models;
+using BestStoreMVC.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Text;
 using System.Text.Json.Nodes;
@@ -6,35 +10,53 @@ using System.Threading.Tasks;
 
 namespace BestStoreMVC.Controllers
 {
+    [Authorize]
     public class CheckOutController : Controller
     {
-        private string PaypalClientId { get; set; } = null!;
-        private string PaypalSecret { get; set; } = null!;
-        private string PaypalUrl { get; set; } = null!;
+        private string PaypalClientId { get; set; } = "";
+        private string PaypalSecret { get; set; } = "";
+        private string PaypalUrl { get; set; } = "";
 
-        public CheckOutController(IConfiguration configuration)
+        private readonly decimal shippingFee;
+        private readonly ApplicationDbContext context;
+        private readonly UserManager<ApplicationUser> userManager;
+
+        public CheckOutController(IConfiguration configuration, ApplicationDbContext context
+            , UserManager<ApplicationUser> userManager)
         {
-            PaypalClientId = configuration["PayPalSettings:ClientId"]!;
-            PaypalSecret = configuration["PayPalSettings:Secret"]!;
-            PaypalUrl = configuration["PayPalSettings:Url"]!;
+            PaypalClientId = configuration["PaypalSettings:ClientId"]!;
+            PaypalSecret = configuration["PaypalSettings:Secret"]!;
+            PaypalUrl = configuration["PaypalSettings:Url"]!;
+
+            shippingFee = configuration.GetValue<decimal>("CartSettings:ShippingFee");
+            this.context = context;
+            this.userManager = userManager;
         }
+
         public IActionResult Index()
         {
+            List<OrderItem> cartItems = CartHelper.GetCartItems(Request, Response, context);
+            decimal total = CartHelper.GetSubTotal(cartItems) + shippingFee;
+
+            string deliveryAddress = TempData["DeliveryAddress"] as string ?? "";
+            TempData.Keep();
+
+            ViewBag.DeliveryAddress = deliveryAddress;
+            ViewBag.Total = total;
             ViewBag.PaypalClientId = PaypalClientId;
             return View();
         }
 
+
         [HttpPost]
-        public async Task<JsonResult> CreateOrder([FromBody] JsonObject data)
+        public async Task<JsonResult> CreateOrder()
         {
-            var totalAmount = data?["amount"]?.ToString();
-            if(totalAmount == null)
-            {
-                return new JsonResult(new { id = "" });
-            }
+            List<OrderItem> cartItems = CartHelper.GetCartItems(Request, Response, context);
+            decimal totalAmount = CartHelper.GetSubTotal(cartItems) + shippingFee;
 
 
-            //create the request body
+
+            // create the request body
             JsonObject createOrderRequest = new JsonObject();
             createOrderRequest.Add("intent", "CAPTURE");
 
@@ -42,19 +64,21 @@ namespace BestStoreMVC.Controllers
             amount.Add("currency_code", "USD");
             amount.Add("value", totalAmount);
 
-            JsonObject purchesUnit1 = new JsonObject();
-            purchesUnit1.Add("amount", amount);
+            JsonObject purchaseUnit1 = new JsonObject();
+            purchaseUnit1.Add("amount", amount);
 
-            JsonArray purchesUnits = new JsonArray();
-            purchesUnits.Add(purchesUnit1);
+            JsonArray purchaseUnits = new JsonArray();
+            purchaseUnits.Add(purchaseUnit1);
 
-            createOrderRequest.Add("purchase_units", purchesUnits);
+            createOrderRequest.Add("purchase_units", purchaseUnits);
 
-            //get access token
+
+            // get access token
             string accessToken = await GetPaypalAccessToken();
 
-            //send
+            // send request
             string url = PaypalUrl + "/v2/checkout/orders";
+
 
             using (var client = new HttpClient())
             {
@@ -65,26 +89,121 @@ namespace BestStoreMVC.Controllers
 
                 var httpResponse = await client.SendAsync(requestMessage);
 
-                if(httpResponse.IsSuccessStatusCode)
+                if (httpResponse.IsSuccessStatusCode)
                 {
                     var strResponse = await httpResponse.Content.ReadAsStringAsync();
                     var jsonResponse = JsonNode.Parse(strResponse);
 
-                    if(jsonResponse != null)
+                    if (jsonResponse != null)
                     {
                         string paypalOrderId = jsonResponse["id"]?.ToString() ?? "";
 
-                        return new JsonResult(new {id =  paypalOrderId});   
+                        return new JsonResult(new { Id = paypalOrderId });
                     }
                 }
             }
 
-            return new JsonResult(new { id = "" });
+
+            return new JsonResult(new { Id = "" });
         }
+
+
+        [HttpPost]
+        public async Task<JsonResult> CompleteOrder([FromBody] JsonObject data)
+        {
+            var orderId = data?["orderID"]?.ToString();
+            var deliveryAddress = data?["deliveryAddress"]?.ToString();
+
+            if (orderId == null || deliveryAddress == null)
+            {
+                return new JsonResult("error");
+            }
+
+            // get access token
+            string accessToken = await GetPaypalAccessToken();
+
+
+            string url = PaypalUrl + "/v2/checkout/orders/" + orderId + "/capture";
+
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, url);
+                requestMessage.Content = new StringContent("", null, "application/json");
+
+                var httpResponse = await client.SendAsync(requestMessage);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var strResponse = await httpResponse.Content.ReadAsStringAsync();
+                    var jsonResponse = JsonNode.Parse(strResponse);
+
+                    if (jsonResponse != null)
+                    {
+                        string paypalOrderStatus = jsonResponse["status"]?.ToString() ?? "";
+                        if (paypalOrderStatus == "COMPLETED")
+                        {
+                            // save the order in the database
+                            await SaveOrder(jsonResponse.ToString(), deliveryAddress);
+
+                            return new JsonResult("success");
+                        }
+                    }
+                }
+            }
+
+
+            return new JsonResult("error");
+        }
+
+        private async Task SaveOrder(string paypalResponse, string deliveryAddress)
+        {
+            // get cart items
+            var cartItems = CartHelper.GetCartItems(Request, Response, context);
+
+            var appUser = await userManager.GetUserAsync(User);
+            if (appUser == null)
+            {
+                return;
+            }
+
+            // save the order
+            var order = new Order
+            {
+                ClientId = appUser.Id,
+                Items = cartItems,
+                ShippingFee = shippingFee,
+                DeliveryAddress = deliveryAddress,
+                PaymentMethod = "paypal",
+                PaymentStatus = "accepted",
+                PaymentDetails = paypalResponse,
+                OrderStatus = "pending",
+                CreatedAt = DateTime.Now,
+            };
+
+            context.Orders.Add(order);
+            context.SaveChanges();
+
+
+            // delete the shopping cart cookie
+            Response.Cookies.Delete("shopping_cart");
+        }
+
+
+
+        /*
+        public async Task<string> Token()
+        {
+            return await GetPaypalAccessToken();
+        }
+        */
 
         private async Task<string> GetPaypalAccessToken()
         {
             string accessToken = "";
+
 
             string url = PaypalUrl + "/v1/oauth2/token";
 
@@ -101,6 +220,7 @@ namespace BestStoreMVC.Controllers
 
                 var httpResponse = await client.SendAsync(requestMessage);
 
+
                 if (httpResponse.IsSuccessStatusCode)
                 {
                     var strResponse = await httpResponse.Content.ReadAsStringAsync();
@@ -111,11 +231,11 @@ namespace BestStoreMVC.Controllers
                         accessToken = jsonResponse["access_token"]?.ToString() ?? "";
                     }
                 }
-
-                
             }
+
 
             return accessToken;
         }
     }
 }
+

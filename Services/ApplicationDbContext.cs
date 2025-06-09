@@ -20,6 +20,7 @@ namespace BestStoreMVC.Services
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Seed();
+
         }
 
         

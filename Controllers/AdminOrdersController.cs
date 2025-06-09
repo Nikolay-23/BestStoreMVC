@@ -7,8 +7,8 @@ using System.Numerics;
 
 namespace BestStoreMVC.Controllers
 {
-    [Authorize(Roles = "admin")]
-    [Route("Admin/Orders/{action=Index}/{id?}")]
+    [Authorize(Roles ="admin")]
+    [Route("/Admin/Orders/{action=Index}/{id?}")]
     public class AdminOrdersController : Controller
     {
         private readonly ApplicationDbContext _context;

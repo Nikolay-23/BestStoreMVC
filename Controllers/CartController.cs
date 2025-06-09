@@ -61,6 +61,11 @@ namespace BestStoreMVC.Controllers
             TempData["DeliveryAddress"] = checkOutViewModel.DeliveryAddress;
             TempData["PaymentMethod"] = checkOutViewModel.PaymentMethod;
 
+            if(checkOutViewModel.PaymentMethod == "paypal" ||  checkOutViewModel.PaymentMethod == "credit_card")
+            {
+                return RedirectToAction("Index", "CheckOut");
+            }
+
             return RedirectToAction("Confirm");
         }
 
@@ -84,10 +89,10 @@ namespace BestStoreMVC.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.DeliveryMethod = deliveryAddress;
+            ViewBag.DeliveryAddress = deliveryAddress;
             ViewBag.PaymentMethod = paymentMethod;
             ViewBag.Total = total;  
-            ViewBag.CartItems = cartItems;
+            ViewBag.CartSize = cartSize;
 
             return View();
         }
