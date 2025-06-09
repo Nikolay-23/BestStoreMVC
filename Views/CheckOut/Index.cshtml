@@ -9,12 +9,12 @@
     <div id="notification-container"></div>
     <div id="paypal-button-container"></div>
 </div>
- 
+
 
 <script>
     paypal.Buttons({
         async createOrder() {
-            const response = await fetch("@Url.ActionLink("CreateOrder", "CheckOut")", {
+            const response = await fetch("@Url.ActionLink("CreateOrder", "Checkout")", {
                 method: "POST"
             });
 
@@ -24,7 +24,7 @@
 
         async onApprove(data) {
             // Capture the funds from the transaction.
-            const response = await fetch("@Url.ActionLink("CompleteOrder", "CheckOut")", {
+            const response = await fetch("@Url.ActionLink("CompleteOrder", "Checkout")", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -76,3 +76,4 @@
         }
     }).render('#paypal-button-container');
 </script>
+

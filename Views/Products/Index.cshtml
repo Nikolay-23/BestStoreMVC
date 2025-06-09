@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Html
+﻿@using Microsoft.AspNetCore.Html;
 @model List<Product>
 @{
     int pageIndex = (int)ViewData["PageIndex"]!;
@@ -90,14 +90,14 @@
 
 <nav>
     <ul class="pagination">
-        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        @for (int i = 1; i <= totalPages; i++)
         {
             string active = "";
-            if (i == ViewBag.PageIndex) active = "active";
+            if (i == pageIndex) active = "active";
             <li class="page-item @active">
-                <a class="page-link" asp-route-pageIndex="@i">@i</a>
+                <a class="page-link" asp-route-pageIndex="@i"
+                   asp-route-search="@search" asp-route-column="@column" asp-route-orderBy="@orderBy">@i</a>
             </li>
         }
     </ul>
 </nav>
-

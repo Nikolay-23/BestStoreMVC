@@ -12,6 +12,9 @@ namespace BestStoreMVC.Models
         [Precision(16, 2)] 
         public decimal UnitPrice { get; set; }
 
+        public int OrderId { get; set; }             
+        public Order Order { get; set; } = null!;
+
         //navigation property
         public Product Product { get; set; } = new Product();
     }
