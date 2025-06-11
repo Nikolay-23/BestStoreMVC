@@ -7,33 +7,34 @@ using System.Numerics;
 
 namespace BestStoreMVC.Controllers
 {
-    [Authorize(Roles ="admin")]
+    [Authorize(Roles = "admin")]
     [Route("/Admin/Orders/{action=Index}/{id?}")]
     public class AdminOrdersController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext context;
         private readonly int pageSize = 5;
+
         public AdminOrdersController(ApplicationDbContext context)
         {
-
-          _context = context;  
-            
+            this.context = context;
         }
+
         public IActionResult Index(int pageIndex)
         {
-            IQueryable<Order> query = _context.Orders.Include(o => o.Client)
-                                                     .Include(o => o.Items)
-                                                     .OrderByDescending(o => o.Id);
+            IQueryable<Order> query = context.Orders.Include(o => o.Client)
+                .Include(o => o.Items).OrderByDescending(o => o.Id);
 
-            if(pageIndex <= 0)
+            if (pageIndex <= 0)
             {
                 pageIndex = 1;
             }
+
 
             decimal count = query.Count();
             int totalPages = (int)Math.Ceiling(count / pageSize);
 
             query = query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+
 
             var orders = query.ToList();
 
@@ -44,27 +45,37 @@ namespace BestStoreMVC.Controllers
             return View();
         }
 
+
         public IActionResult Details(int id)
         {
-            var order = _context.Orders.Include(o => o.Client).Include(o => o.Items)
-                        .ThenInclude(oi => oi.Product).FirstOrDefault(o => o.Id == id);
+            var order = context.Orders.Include(o => o.Client).Include(o => o.Items)
+                .ThenInclude(oi => oi.Product).FirstOrDefault(o => o.Id == id);
+
 
             if (order == null)
             {
                 return RedirectToAction("Index");
             }
 
-            ViewBag.NewOrders = _context.Orders.Where(o => o.ClientId == order.ClientId).Count();
+
+            ViewBag.NumOrders = context.Orders.Where(o => o.ClientId == order.ClientId).Count();
 
             return View(order);
         }
 
+
         public IActionResult Edit(int id, string? payment_status, string? order_status)
         {
-            var order = _context.Orders.Find(id);
+            var order = context.Orders.Find(id);
             if (order == null)
             {
                 return RedirectToAction("Index");
+            }
+
+
+            if (payment_status == null && order_status == null)
+            {
+                return RedirectToAction("Details", new { id });
             }
 
             if (payment_status != null)
@@ -77,7 +88,8 @@ namespace BestStoreMVC.Controllers
                 order.OrderStatus = order_status;
             }
 
-            _context.SaveChanges();
+            context.SaveChanges();
+
 
             return RedirectToAction("Details", new { id });
         }
