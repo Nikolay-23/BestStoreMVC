@@ -9,13 +9,15 @@ The application also includes an Admin role. As an Admin, you can track when an 
 
 ### 🚀 Getting Started
 
-1. Clone the repository:
+#1. Clone the repository:
 ```bash
 git clone https://github.com/Nikolay-23/BestStoreMVC.git
 cd BestStoreMVC
 
-2. Install dependencies:
+#2. Install dependencies:
+```bash
 npm install
 
-3. Run the project:
+#3. Run the project:
+```bash
 npm start
