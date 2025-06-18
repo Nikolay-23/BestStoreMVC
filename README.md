@@ -15,7 +15,6 @@ git clone https://github.com/Nikolay-23/BestStoreMVC.git
 cd BestStoreMVC
 
 2. Install dependencies:
-```bash
 npm install
 
 3. Run the project:
