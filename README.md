@@ -6,8 +6,44 @@ I developed an E-Commerce Web Application as part of a Udemy course project. The
 <br>
 <br>
 The application also includes an Admin role. As an Admin, you can track when an order was made and update most order details, such as the order status and payment status (accepted, pending, or canceled). Additionally, you can manage user roles—users can be Clients, Sellers, or Admins. Admins have the ability to delete user profiles, add new items to the store, or remove existing ones.
-
-### 🚀 Getting Started
+<br>
+<br>
+Log in as Admin: 
+<br>
+<br>
+Email: admin@admin.com
+<br>
+Password: admin123
+<br>
+<br>
+Log in as User:
+<br>
+<br>
+Email: user@gmail.com
+<br>
+Password: user123#
+<br>
+<br>
+Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
+<br>
+<br>
+When you make transaction in BestStore MVC use personal DEMO account 
+<br>
+<br>
+Email: sb-hzt47743514460@personal.example.com
+<br>
+Password: zS.UCE1p
+<br>
+<br>
+Log in with PayPal business DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
+<br>
+<br>
+Email: sb-tgjti43312653@business.example.com
+<br>
+Password: LpGd(/%4
+<br>
+<br>
+🚀 Getting Started
 
 # Clone the repository:
 ```bash
