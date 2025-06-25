@@ -27,12 +27,15 @@ Password: user123#
 Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
 <br>
 <br>
+When you make transaction in BestStore MVC use the personal DEMO account 
+<br>
 Email: sb-hzt47743514460@personal.example.com
 <br>
 Password: zS.UCE1p
 <br>
 <br>
 Log in with PayPal business DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
+<br>
 <br>
 Email: sb-tgjti43312653@business.example.com
 <br>
