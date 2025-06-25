@@ -10,6 +10,7 @@ The application also includes an Admin role. As an Admin, you can track when an 
 <br>
 Log in as Admin: 
 <br>
+<br>
 Email: admin@admin.com
 <br>
 Password: admin123
@@ -17,10 +18,18 @@ Password: admin123
 <br>
 Log in as User:
 <br>
+<br>
 Email: user@gmail.com
 <br>
 Password: user123#
 <br>
+<br>
+Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
+<br>
+<br>
+Email: sb-hzt47743514460@personal.example.com
+<br>
+Password: zS.UCE1p
 ### 🚀 Getting Started
 
 # Clone the repository:
