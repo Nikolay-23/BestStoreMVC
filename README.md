@@ -11,10 +11,15 @@ The application also includes an Admin role. As an Admin, you can track when an 
 Log in as Admin: 
 <br>
 Email: admin@admin.com
-PassWord: admin123
+<br>
+Password: admin123
 <br>
 <br>
 Log in as User:
+<br>
+Email: user@gmail.com
+<br>
+Password: user123#
 <br>
 ### 🚀 Getting Started
 
