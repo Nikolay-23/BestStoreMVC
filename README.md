@@ -39,7 +39,7 @@ Email: sb-tgjti43312653@business.example.com
 Password: LpGd(/%4
 <br>
 <br>
-### 🚀 Getting Started
+🚀 Getting Started
 
 # Clone the repository:
 ```bash
