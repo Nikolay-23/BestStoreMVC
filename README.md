@@ -30,6 +30,14 @@ Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com
 Email: sb-hzt47743514460@personal.example.com
 <br>
 Password: zS.UCE1p
+<br>
+<br>
+Log in with PayPal business DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
+<br>
+Email: sb-tgjti43312653@business.example.com
+<br>
+Password: LpGd(/%4
+<br>
 ### 🚀 Getting Started
 
 # Clone the repository:
