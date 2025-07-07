@@ -8,12 +8,17 @@ I developed an E-Commerce Web Application as part of a Udemy course project. The
 The application also includes an Admin role. As an Admin, you can track when an order was made and update most order details, such as the order status and payment status (accepted, pending, or canceled). Additionally, you can manage user roles—users can be Clients, Sellers, or Admins. Admins have the ability to delete user profiles, add new items to the store, or remove existing ones.
 <br>
 <br>
+
+### UI
+
+🚀 Getting Started
+<br>
 Log in as Admin: 
 <br>
 <br>
-Email: admin@admin.com
+Email: admin@beststore.com
 <br>
-Password: admin123
+Password: admin123#
 <br>
 <br>
 Log in as User:
@@ -42,10 +47,6 @@ Email: sb-tgjti43312653@business.example.com
 <br>
 Password: LpGd(/%4
 <br>
-
-### UI
-
-🚀 Getting Started
 
 # Clone the repository:
 ```bash
