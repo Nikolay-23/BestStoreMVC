@@ -24,22 +24,22 @@ The application also includes an Admin role. As an Admin, you can track when an 
 - Log in as Admin: 
 
 <br>
-Email: admin@beststore.com
+ Email: admin@beststore.com
 <br>
-Password: admin123#
+ Password: admin123#
 <br>
+
+- Log in as User:
+
 <br>
-Log in as User:
+ Email: user@gmail.com
 <br>
+ Password: user123#
 <br>
-Email: user@gmail.com
+
+- Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
 <br>
-Password: user123#
-<br>
-<br>
-Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
-<br>
-<br>
+
 When you make transaction in BestStore MVC use personal DEMO account 
 <br>
 <br>
