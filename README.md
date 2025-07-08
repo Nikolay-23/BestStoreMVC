@@ -11,7 +11,7 @@ The application also includes an Admin role. As an Admin, you can track when an 
 
 ### UI
 
-### 🎥 Demo Video
+### 🎥 Demo Video of the project
 <br>
 <a href="https://www.youtube.com/watch?v=F1sNu9ov_wQ">Click me</a>
 <br>
