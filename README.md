@@ -21,9 +21,8 @@ The application also includes an Admin role. As an Admin, you can track when an 
 
 ### Login Details
 
-<br>
 - Log in as Admin: 
-<br>
+
 <br>
 Email: admin@beststore.com
 <br>
