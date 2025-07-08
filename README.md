@@ -42,20 +42,20 @@ The application also includes an Admin role. As an Admin, you can track when an 
 - Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
 <br>
 
-When you make transaction in BestStore MVC use personal DEMO account 
+- When you make transaction in BestStore MVC use personal DEMO account 
+
 <br>
+ Email: sb-hzt47743514460@personal.example.com
 <br>
-Email: sb-hzt47743514460@personal.example.com
+ Password: zS.UCE1p
 <br>
-Password: zS.UCE1p
+  
+- Log in with PayPal business DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
+
 <br>
+ Email: sb-tgjti43312653@business.example.com
 <br>
-Log in with PayPal business DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
-<br>
-<br>
-Email: sb-tgjti43312653@business.example.com
-<br>
-Password: LpGd(/%4
+ Password: LpGd(/%4
 <br>
 
 # Clone the repository:
