@@ -40,6 +40,7 @@ The application also includes an Admin role. As an Admin, you can track when an 
 <br>
 
 - Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
+
 <br>
 
 - When you make transaction in BestStore MVC use personal DEMO account 
