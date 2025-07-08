@@ -19,9 +19,9 @@ The application also includes an Admin role. As an Admin, you can track when an 
 🚀 Getting Started
 <br>
 
-##### Login Details
+### Login Details
 
-
+<br>
 Log in as Admin: 
 <br>
 <br>
