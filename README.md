@@ -38,6 +38,7 @@ The application also includes an Admin role. As an Admin, you can track when an 
 <br>
  Password: user123#
 <br>
+<br>
 
 - Log in with PayPal personal DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
 
@@ -50,7 +51,8 @@ The application also includes an Admin role. As an Admin, you can track when an 
 <br>
  Password: zS.UCE1p
 <br>
-  
+<br>
+ 
 - Log in with PayPal business DEMO account <a href="https://www.sandbox.paypal.com/us/home">PayPal</a>
 
 <br>
