@@ -12,11 +12,16 @@ The application also includes an Admin role. As an Admin, you can track when an 
 ### UI
 
 ### 🎥 Demo Video
-
-[![Watch the demo](https://www.youtube.com/watch?v=F1sNu9ov_wQ)](media/demo.mp4)
-
+<br>
+<a href="https://www.youtube.com/watch?v=F1sNu9ov_wQ">Click me</a>
+<br>
+<br>
 🚀 Getting Started
 <br>
+
+### Login Details
+
+
 Log in as Admin: 
 <br>
 <br>
