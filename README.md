@@ -11,6 +11,10 @@ The application also includes an Admin role. As an Admin, you can track when an 
 
 ### UI
 
+### Home Page Photo
+
+![image](https://github.com/user-attachments/assets/6145a661-527d-46df-bf98-1ec39e05b43c)
+
 #### 🎥 Demo Video of the project
 <br>
 <a href="https://www.youtube.com/watch?v=F1sNu9ov_wQ">Click me</a>
