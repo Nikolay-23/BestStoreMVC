@@ -85,3 +85,34 @@ cd BestStoreMVC
 ```bash
 cd BestStoreMVC
 ```
+
+<br>
+3. Restore dependencies:
+<br>
+<br>
+
+```bash
+dotnet restore
+```
+
+<br>
+4. Run the application:
+<br>
+<br>
+
+```bash
+dotnet run
+```
+
+<br>
+5. Open your browser and navigate to:
+<br>
+<br>
+
+```bash
+http://localhost:{defaultAppPort}
+```
+
+
+
+
