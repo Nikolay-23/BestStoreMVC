@@ -66,6 +66,10 @@ The application also includes an Admin role. As an Admin, you can track when an 
 <br>
 
 # Clone the repository:
+
+<br>
+1. Clone the repository:
+<br>
 ```bash
 git clone https://github.com/Nikolay-23/BestStoreMVC.git
 cd BestStoreMVC
